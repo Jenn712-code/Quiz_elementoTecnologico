@@ -1,4 +1,4 @@
-package com.ucentral.elementoTecnologico.Controladores;
+package com.ucentral.elementoTecnologico.controladores;
 
 import com.ucentral.elementoTecnologico.dto.ComputadorDto;
 import com.ucentral.elementoTecnologico.servicios.ServiciosComputador;
@@ -32,6 +32,6 @@ public class ControladoresComputador {
     @PostMapping("/crear")
     public String registrarAfiliado(@ModelAttribute("compu") ComputadorDto computadorDto) {
         serviciosComputador.crear(computadorDto);
-        return "redirect:/listar_computadores";
+        return "redirect:/inicio";
     }
 }

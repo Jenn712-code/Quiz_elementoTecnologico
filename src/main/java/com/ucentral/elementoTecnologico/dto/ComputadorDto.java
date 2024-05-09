@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ComputadorDto {
 
-    private Long serial;
+    private String serial;
     private String marca;
     private String color;
     private String tamaño;

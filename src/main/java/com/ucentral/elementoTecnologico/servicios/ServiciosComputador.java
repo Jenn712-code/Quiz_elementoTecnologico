@@ -1,9 +1,9 @@
 package com.ucentral.elementoTecnologico.servicios;
 
-import com.ucentral.elementoTecnologico.Operaciones.OperacionesComputador;
-import com.ucentral.elementoTecnologico.Repositorios.RepositorioComputador;
 import com.ucentral.elementoTecnologico.dto.ComputadorDto;
 import com.ucentral.elementoTecnologico.entidades.Computador;
+import com.ucentral.elementoTecnologico.operaciones.OperacionesComputador;
+import com.ucentral.elementoTecnologico.repositorios.RepositorioComputador;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ import java.util.List;
 public class ServiciosComputador implements OperacionesComputador {
     private ModelMapper modelMapper = new ModelMapper();
     @Autowired
-    RepositorioComputador repositoriosComputador;
+    RepositorioComputador repositorioComputador;
 
     @Override
     public ComputadorDto crear(ComputadorDto computadorDto) {
         if (computadorDto != null){
-            Computador computador =   repositoriosComputador.save(modelMapper.map(computadorDto, Computador.class));
+            Computador computador =   repositorioComputador.save(modelMapper.map(computadorDto, Computador.class));
             return modelMapper.map(computador, ComputadorDto.class);
         }
 
@@ -41,7 +41,7 @@ public class ServiciosComputador implements OperacionesComputador {
     public List<ComputadorDto> consultarT() {
         TypeToken<List<ComputadorDto>> typeToken = new TypeToken<>() {
         };
-        return modelMapper.map(this.repositoriosComputador.findAll(), typeToken.getType());
+        return modelMapper.map(this.repositorioComputador.findAll(), typeToken.getType());
     }
 
     @Override

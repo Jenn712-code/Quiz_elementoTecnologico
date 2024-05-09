@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class Computador {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Serial;
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String Serial;
 
     @Column(name= "com_marca")
     private String marca;
